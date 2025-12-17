@@ -24,55 +24,55 @@ const categories = [
   { id: 'commerce-vitrine', label: 'Commerce Vitrine' },
 ];
 
-// Sample projects (placeholder)
+// Portfolio projects
 const sampleProjects: Project[] = [
   {
     id: '1',
-    title: 'Restaurant Trapeneck',
-    category: 'restaurant-premium',
-    description: 'Site multi-pages avec réservation en ligne',
-    imageUrl: '',
-    siteUrl: '#',
+    title: 'Nizart Piazza',
+    category: 'restaurant-personnalise',
+    description: 'Restaurant italien premium avec commande en ligne intégrée',
+    imageUrl: '/screenshots/nizart-piazza.png',
+    siteUrl: 'https://nizartpiazza.lu',
   },
   {
     id: '2',
-    title: 'Pepperoni',
+    title: 'Restaurant Pepperoni',
     category: 'restaurant-personnalise',
-    description: 'Restaurant italien avec menu dynamique',
-    imageUrl: '',
-    siteUrl: '#',
+    description: 'Pizzeria italienne avec menu dynamique et commande en ligne',
+    imageUrl: '/screenshots/pepperoni.png',
+    siteUrl: 'https://food-order-lu.github.io/pepperoni/',
   },
   {
     id: '3',
     title: 'Chez Zhang',
     category: 'restaurant-vitrine',
-    description: 'Restaurant asiatique moderne',
-    imageUrl: '',
-    siteUrl: '#',
+    description: 'Restaurant asiatique moderne avec menu interactif',
+    imageUrl: '/screenshots/chez-zhang.png',
+    siteUrl: 'https://food-order-lu.github.io/chez-zhang/',
   },
   {
     id: '4',
-    title: 'Boulangerie Martin',
-    category: 'commerce-vitrine',
-    description: 'Site vitrine élégant',
-    imageUrl: '',
-    siteUrl: '#',
+    title: 'Mon Traiteur',
+    category: 'commerce-premium',
+    description: 'Service traiteur avec galerie et formulaire de contact',
+    imageUrl: '/screenshots/montraiteur.png',
+    siteUrl: 'https://food-order-lu.github.io/mon-traiteur/',
   },
   {
     id: '5',
-    title: 'Flyer Restaurant',
-    category: 'print-marketing',
-    description: 'Design flyer promotionnel',
-    imageUrl: '',
-    siteUrl: '#',
+    title: 'La Terrazza',
+    category: 'restaurant-personnalise',
+    description: 'Restaurant italien haut de gamme avec réservation en ligne',
+    imageUrl: '/screenshots/laterrazza.png',
+    siteUrl: 'https://la-terrazza.lu/',
   },
   {
     id: '6',
-    title: 'Carte de visite Pro',
-    category: 'identite-visuelle',
-    description: 'Design carte de visite premium',
-    imageUrl: '',
-    siteUrl: '#',
+    title: 'Kohinoor',
+    category: 'restaurant-vitrine',
+    description: 'Restaurant indien et tibétain à Howald',
+    imageUrl: '/screenshots/kohinoor.png',
+    siteUrl: 'https://kohinoor.lu/',
   },
 ];
 
@@ -84,7 +84,7 @@ function ThemeToggle() {
     // Check for saved theme or system preference
     const savedTheme = localStorage.getItem('theme');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
+
     if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
       setIsDark(true);
       document.documentElement.setAttribute('data-theme', 'dark');
@@ -115,6 +115,7 @@ function Header() {
         <div className="logo">
           <span className="logo-main">WebVision</span>
           <span className="logo-sub">Digital Studio</span>
+          <span className="logo-by">by Rivego</span>
         </div>
         <div className="header-right">
           <a href="#projets" className="nav-link">Projets</a>
@@ -136,7 +137,7 @@ function Hero() {
           Créations <span className="hero-title-gradient">Digitales</span> & Print
         </h1>
         <p className="hero-description">
-          Découvrez nos réalisations : sites web pour restaurants et commerces, 
+          Découvrez nos réalisations : sites web pour restaurants et commerces,
           identités visuelles et supports marketing.
         </p>
       </div>
@@ -186,8 +187,8 @@ function ProjectCard({ project }: ProjectCardProps) {
     <article className="project-card" onClick={handleClick}>
       <div className="project-image-wrapper">
         {project.imageUrl ? (
-          <img 
-            src={project.imageUrl} 
+          <img
+            src={project.imageUrl}
             alt={project.title}
             className="project-image"
           />
@@ -245,8 +246,8 @@ function Footer() {
   return (
     <footer className="footer" id="contact">
       <p className="footer-text">
-        © {new Date().getFullYear()} <a href="/" className="footer-link">WebVision</a>. 
-        Tous droits réservés.
+        © {new Date().getFullYear()} <a href="/" className="footer-link">WebVision</a> —
+        Géré par <a href="https://rivego.lu" target="_blank" rel="noopener noreferrer" className="footer-link">rivego.lu</a>
       </p>
     </footer>
   );
@@ -261,13 +262,13 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
-        <CategoryFilter 
-          activeCategory={activeCategory} 
-          onCategoryChange={setActiveCategory} 
+        <CategoryFilter
+          activeCategory={activeCategory}
+          onCategoryChange={setActiveCategory}
         />
-        <ProjectsGrid 
-          projects={sampleProjects} 
-          activeCategory={activeCategory} 
+        <ProjectsGrid
+          projects={sampleProjects}
+          activeCategory={activeCategory}
         />
       </main>
       <Footer />
